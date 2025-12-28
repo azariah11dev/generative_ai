@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from summarizer.pipeline import summarize_text
-from models import TextPayload
+from backend.summarizer.pipeline import summarize_text
+from backend.models import TextPayload
 
 app = FastAPI()
 
