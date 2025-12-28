@@ -13,3 +13,10 @@ def summarize_text(text: str) -> str:
         do_sample = False
         )
     return result[0]['summary_text']
+
+"""
+# Check device (CPU/GPU) being used by the model
+# for testing purposes only
+# remove # from print function and run this file directly to see the device info
+"""
+# print(f"{summarizer.model.device}")
