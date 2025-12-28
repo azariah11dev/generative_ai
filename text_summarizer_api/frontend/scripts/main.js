@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const summary_output = document.getElementById("container-1-summary-output");
     const summarize_button = document.getElementById("summarize-button");
 
+    text_input.addEventListener("input", () => {
+        text_input.style.height = "auto";          // reset
+        text_input.style.height = text_input.scrollHeight + "px"; // expand to fit content
+    });
+
+
     summarize_button.addEventListener("click", async () => {
         try {
             const response = await fetch("http://localhost:8000/summarize", {
