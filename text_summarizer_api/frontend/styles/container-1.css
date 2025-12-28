@@ -1,0 +1,40 @@
+.container-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+    text-align: center;
+    gap: 3px;
+}
+
+.container-1-text-entry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#summarize-button {
+    width: 80px;
+    border-radius: 10px;
+    background-color: lightblue;
+}
+#summarize-button:hover {
+    background-color: deepskyblue;
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+#container-1-summary-output {
+    width: 50%;
+    text-align: center;
+}
+
+.container-1-text-entry-input-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
