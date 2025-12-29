@@ -8,7 +8,6 @@ from selenium.webdriver.edge.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import sys
-import subprocess, time, os
 
 # ---------- Logging: Minimal Setup ----------
 logging.basicConfig(
@@ -21,32 +20,12 @@ logging.basicConfig(
     force=True
 )
 
-# ---------- Fixture: Start Frontend Server ----------
-@pytest.fixture(scope="session", autouse=True)
-def start_frontend_server():
-    logging.info("Starting frontend server for tests")
-    # Resolve frontend directory RELATIVE to project root
-    project_root = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "..", "..")
-    )
-    frontend_path = os.path.join(project_root, "frontend")
-    logging.info(f"Serving frontend from: {frontend_path}")
-
-    process = subprocess.Popen(
-        ["python", "-m", "http.server", "5500", "--bind", "127.0.0.1"],
-        cwd = frontend_path
-    )
-    time.sleep(3) # Wait for server to start
-    yield
-    logging.info("Stopping frontend server after tests")
-    process.terminate()
-
 # ---------- Fixture: Browser Setup ----------
 @pytest.fixture(scope="module")
 def driver():
     option = Options()
-    option.add_argument("--headless")
-    service = Service(EdgeChromiumDriverManager().install())
+    option.add_argument("--headless=new")
+    service = Service()
     driver = webdriver.Edge(service=service, options=option)
     yield driver
     driver.quit()
