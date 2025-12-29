@@ -18,6 +18,10 @@ app.add_middleware(
 def read_root():
     return {"message": "Welcome to the Text Summarization API!"}
 
+@app.get("/health")
+def health_check():
+    return {"status": "OK"}
+
 @app.post("/summarize")
 def summarize(payload: TextPayload):
     summary = summarize_text(payload.text)
