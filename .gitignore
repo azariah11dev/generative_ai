@@ -16,3 +16,6 @@ __pycache__/
 # OS files
 Thumbs.db
 test.db
+
+#test files
+*.log
