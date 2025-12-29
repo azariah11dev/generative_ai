@@ -1,7 +1,7 @@
 [project]
 name = "text-summarizer-api"
 version = "0.1.0"
-description = "Add your description here"
+description = "uses generative ai to summarize information into more compact form"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
