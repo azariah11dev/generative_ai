@@ -1,13 +1,18 @@
 import pytest
 import logging
 from selenium import webdriver
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import sys
+"""
+ommitted import from selenium testing due to an issue where webdriver manager is not reaching the microsoft site to download the driver
+Might be due to the fact that my environment does not have internet access
+not sure tho
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+"""
 
 # ---------- Logging: Minimal Setup ----------
 logging.basicConfig(
