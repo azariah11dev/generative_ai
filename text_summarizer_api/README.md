@@ -28,7 +28,7 @@
         - If you don't want the extension, you can run a simple dev server:
          - **If you have Node.js installed:**
          - in the aditional terminal window navigate to frontend folder using cd "input folder path"
-            - example command: cd "./generative_ai/text_summarizer_api/frontend" 
+            - example command: cd ".\generative_ai\text_summarizer_api\frontend" 
         - in the terminal run: npm run dev
         - **Or Using Python's built--in server:**
         - from the frontend folder using the same navigation trick as described above run
