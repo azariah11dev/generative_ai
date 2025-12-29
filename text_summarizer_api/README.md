@@ -1,5 +1,5 @@
 # **How To Run This App**
-
+    - This project is intentionally documented for beginners who are learning how to connect frontend, backend, and ML together
 1. ## Install Dependencies
     - from the project root
         - ### If you use regular python:
@@ -35,10 +35,38 @@
             - python -m http.server 5500
             - then look up: http://localhost:5500/index.html in web browser
 4. ## Running Backend
-    - Don't panic when you get **Hmmm… can't reach this page**, this is normal. It takes a long time for all the models to start up.
+    - Initial requests may fail while models load (~60s or longer depending on your machine). This is expected.
         - as long as uvicorn doesn't give you an error message which is displayed in the terminal, the servers are just getting started.
     - Refresh page when you get something like:
         - INFO:     127.0.0.1:61482 - "GET / HTTP/1.1" 200 OK
+
+5. ## Running Tests
+    - Before running tests make sure the backend is running using the instructions above
+    - For the frontend navigate to the index.html folder using the above python instructions then run
+        - python -m http.server 5500 --bind 127.0.0.1
+    - ## **Note all servers should be runing before test starts**
+    - ### **Run the Entire Test Suit**
+        - from the project root run:
+            - #### *Python only*
+            - pytest -vv
+            - ##### *Run Backend Tests only*
+            - pytest tests/test_backend -vv
+            - ##### *Run Frontend Tests only (Selenium)*
+            - pytest tests/test_frontend -vv
+            - #### *uv*
+            - uv run pytest tests
+            - ##### *Run Backend Tests only*
+            - uv run pytest tests/test_backend
+            - ##### *Run Frontend Tests only (Selenium)*
+            - uv run pytest tests/test_frontend
+    
+    - ### **Notes & Troubleshooting**
+        - #### *No Internet Required:*
+            - The project uses the system-installed EdgeDriver instead of webdriver_manager, so tests run fully offline
+        - #### *If the frontend test fails instantly:*
+            - Ensure your folder structure matches the expected layout and that the frontend/ directory exists at the project root.
+        - #### *If the backend appears “stuck” on startup:*
+            - This is normal — large transformer models take time to load.
 
 
 # **Feature: Smart Model Swapping**
