@@ -1,22 +1,22 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/python
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
 {
-	"name": "Python 3",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/python:3.13"
+  "name": "Text Summarizer Dev",
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+  // Use your docker-compose.yml
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+  // Must match the service name in docker-compose.yml
+  "service": "devcontainer",
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+  // Where VS Code should open inside the container
+  "workspaceFolder": "/workspaces/text_summarizer_api",
 
-	// Configure tool-specific properties.
-	// "customizations": {},
+  // No extra features — your Dockerfile defines the environment
+  "features": {},
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+  // Optional: install dependencies automatically
+  // "postCreateCommand": "pip install -r requirements.txt"
 }

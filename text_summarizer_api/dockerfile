@@ -1,0 +1,22 @@
+# Use an official Python image
+FROM python:3.13-slim
+
+# Avoid Python writing .pyc files and enable unbuffered logs
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Install system dependencies (optional but recommended)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create workspace directory
+WORKDIR /workspaces/text_summarizer_api
+
+# Copy requirements if you have them
+# COPY requirements.txt .
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# Default command for devcontainers
+CMD ["sleep", "infinity"]
